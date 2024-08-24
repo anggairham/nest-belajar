@@ -21,3 +21,5 @@ npm run test:e2e
 # provider agar object dari provider bisa diinject sebagai dependency ke object lainnya (Controller atau provider lain)
 # membuat Provider jenisnya service
 nest generate service user user
+
+nest generate provider connection user

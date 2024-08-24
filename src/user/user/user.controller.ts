@@ -1,6 +1,7 @@
 import { Controller, Get, Header, HttpCode, HttpRedirectResponse, Inject, Optional, Param, Post, Query, Redirect, Req, Res } from '@nestjs/common';
 import { Request,Response } from 'express';
 import { UserService } from './user.service';
+import { Connection } from '../connection/connection';
 
 @Controller('/api/users')
 export class UserController {
@@ -14,8 +15,15 @@ export class UserController {
     /* 
     constructor parameter untuk melakukan dependency injection 
     */
-    constructor(private userService: UserService){
+    constructor(
+        private userService: UserService,
+        private connection: Connection,
+    ){
 
+    }
+    @Get('/connections')
+    async getConnection(): Promise<string> {
+        return this.connection.getName();
     }
     @Get('/hello-service')
     async sayHelloService(
