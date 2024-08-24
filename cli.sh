@@ -1,3 +1,4 @@
+# NEST JS semuanya berbasil module
 nest generate module user
 nest generate controller user user
 
@@ -29,3 +30,6 @@ nest generate service mail user
 nest generate provider user-repository user
 
 nest generate service member user
+
+# configuration : untuk keperluan env , koneksi db 
+npm install @nestjs/config
