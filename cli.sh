@@ -17,3 +17,7 @@ npm run test
 
 # untuk testing integration test
 npm run test:e2e
+# banyak class di aplikasi NestJS bisa dianggap sebagai Provider, contoh misal Service, Repository, Factory, Helper dan lainnya
+# provider agar object dari provider bisa diinject sebagai dependency ke object lainnya (Controller atau provider lain)
+# membuat Provider jenisnya service
+nest generate service user user
