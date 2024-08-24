@@ -33,6 +33,11 @@ import { ConfigService } from '@nestjs/config';
       inject:[Connection],
     },
     MemberService,
-  ]
+  ],
+  /**
+   * dikarenkan nest js secara default satu module tidak bisa digunakan di module yang lain misalkan user.module tidak bisa langsung digunakan di app.module
+   * exports untuk keperluan sharing module 
+   * */
+  exports:[UserService]
 })
 export class UserModule {}
