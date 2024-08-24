@@ -7,7 +7,7 @@ export class AppController {
   constructor(
     private readonly appService: AppService,
     // untuk keperluan testing sharing module exports
-    private userService:UserService,
+    private userService: UserService,
   ) {}
 
   @Get()

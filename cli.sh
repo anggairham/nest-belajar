@@ -22,14 +22,19 @@ npm run test:e2e
 # provider agar object dari provider bisa diinject sebagai dependency ke object lainnya (Controller atau provider lain)
 # membuat Provider jenisnya service
 nest generate service user user
-
 nest generate provider connection user
-
 nest generate service mail user
-
 nest generate provider user-repository user
-
 nest generate service member user
 
 # configuration : untuk keperluan env , koneksi db 
 npm install @nestjs/config
+npm install --save-dev prisma
+npx prisma init
+
+npx prisma migrate dev
+# Enter a name for the new migration: ... create table users
+npx prisma generate
+
+nest generate module prisma
+nest generate service prisma prisma
