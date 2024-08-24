@@ -42,6 +42,7 @@ nest generate service prisma prisma
 npm install nest-winston
 # validation
 npm install zod
-
 nest generate module validation
 nest generate service validation validation
+# middleware
+nest generate middleware log
