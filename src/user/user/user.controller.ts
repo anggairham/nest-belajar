@@ -3,6 +3,18 @@ import { Request,Response } from 'express';
 
 @Controller('/api/users')
 export class UserController {
+    @Get('/set-cookie')
+    // karena cookie bawaan dari express terpaksa menggunakan Response
+    setCookie(@Query('name') name:string,@Res() response:Response){
+        response.cookie('name',name)
+        response.status(200).send('success set cookie')
+    }
+    @Get('/get-cookie')
+    // karena cookie bawaan dari express terpaksa menggunakan Response
+    getCookie(@Req() request:Request){
+        return request.cookies['name']
+    }
+
     @Get('/sample-response')
     // tidak perlu menggunakan Response dari express
     // sampleResponse(@Res() res:Response) {
