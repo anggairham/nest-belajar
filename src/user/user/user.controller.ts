@@ -3,6 +3,14 @@ import { Request,Response } from 'express';
 
 @Controller('/api/users')
 export class UserController {
+    @Get('/view/hello')
+    // karena cookie bawaan dari express terpaksa menggunakan Response
+    viewHello(@Query('name') name:string,@Res() response:Response){
+        response.render('index.html',{
+            title:'template Engine',
+            name:name,
+        })
+    }
     @Get('/set-cookie')
     // karena cookie bawaan dari express terpaksa menggunakan Response
     setCookie(@Query('name') name:string,@Res() response:Response){
