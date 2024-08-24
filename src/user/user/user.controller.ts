@@ -2,6 +2,7 @@ import { Controller, Get, Header, HttpCode, HttpRedirectResponse, Inject, Option
 import { Request,Response } from 'express';
 import { UserService } from './user.service';
 import { Connection } from '../connection/connection';
+import { MailService } from '../mail/mail.service';
 
 @Controller('/api/users')
 export class UserController {
@@ -18,11 +19,13 @@ export class UserController {
     constructor(
         private userService: UserService,
         private connection: Connection,
+        private mailService: MailService,
     ){
 
     }
     @Get('/connections')
     async getConnection(): Promise<string> {
+        this.mailService.send()
         return this.connection.getName();
     }
     @Get('/hello-service')

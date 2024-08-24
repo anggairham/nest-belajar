@@ -23,3 +23,5 @@ npm run test:e2e
 nest generate service user user
 
 nest generate provider connection user
+
+nest generate service mail user
