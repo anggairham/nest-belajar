@@ -1,8 +1,29 @@
-import { Controller, Get, Header, HttpCode, HttpRedirectResponse, Param, Post, Query, Redirect, Req, Res } from '@nestjs/common';
+import { Controller, Get, Header, HttpCode, HttpRedirectResponse, Inject, Optional, Param, Post, Query, Redirect, Req, Res } from '@nestjs/common';
 import { Request,Response } from 'express';
+import { UserService } from './user.service';
 
 @Controller('/api/users')
 export class UserController {
+    /* 
+    INI ADA PROPERTY dependency injection
+    REKOMENDASI MENGGUNAKAN constructor parameter 
+    */
+    // @Inject()
+    // @Optional() //optional dependency
+    // private userService: UserService;
+    /* 
+    constructor parameter untuk melakukan dependency injection 
+    */
+    constructor(private userService: UserService){
+
+    }
+    @Get('/hello-service')
+    async sayHelloService(
+        @Query("name") name: string,
+    ): Promise<string> {
+        return this.userService.sayHello(name);
+    }
+
     @Get('/view/hello')
     // karena cookie bawaan dari express terpaksa menggunakan Response
     viewHello(@Query('name') name:string,@Res() response:Response){
