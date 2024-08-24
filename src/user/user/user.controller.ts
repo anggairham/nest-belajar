@@ -7,7 +7,7 @@ export class UserController {
     // karena cookie bawaan dari express terpaksa menggunakan Response
     viewHello(@Query('name') name:string,@Res() response:Response){
         response.render('index.html',{
-            title:'template Engine',
+            title:'Template Engine',
             name:name,
         })
     }
@@ -46,19 +46,22 @@ export class UserController {
             statusCode:301
         }
     }
-    @Get('/sample-promise')
-    async samplePromise(): Promise<string> {
-        return 'get async Promise';
+    @Get('/say-hello-async')
+    async sayHelloAsync(
+        @Query("first_name") first_name: string,
+        @Query("last_name") lastname: string
+    ): Promise<string> {
+        return `hello ${first_name} ${lastname}`;
     }
     @Get('/hello')
     // sayHello(@Req() req:Request): string {
     //     return `hello ${req.query.name}`;
     // }
     sayHello(
-        @Query("name") name: string,
+        @Query("first_name") first_name: string,
         @Query("last_name") lastname: string
     ): string {
-        return `hello ${name} ${lastname}`;
+        return `hello ${first_name} ${lastname}`;
     }
     
     @Get(':id')
