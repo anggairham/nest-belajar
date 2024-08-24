@@ -14,3 +14,6 @@ npm install --save-dev @types/mustache-express
 npm install --save-dev node-mocks-http
 # untuk testing unit test
 npm run test
+
+# untuk testing integration test
+npm run test:e2e

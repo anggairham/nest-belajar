@@ -46,7 +46,7 @@ export class UserController {
             statusCode:301
         }
     }
-    @Get('/say-hello-async')
+    @Get('/hello-async')
     async sayHelloAsync(
         @Query("first_name") first_name: string,
         @Query("last_name") lastname: string
