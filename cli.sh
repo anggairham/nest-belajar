@@ -38,3 +38,5 @@ npx prisma generate
 
 nest generate module prisma
 nest generate service prisma prisma
+# logging
+npm install nest-winston
