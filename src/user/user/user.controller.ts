@@ -22,6 +22,7 @@ export class UserController {
         private connection: Connection,
         private mailService: MailService,
         private userRepository:UserRepository,
+        @Inject('EmailService') private emailService:MailService,
     ){
 
     }
@@ -29,6 +30,7 @@ export class UserController {
     async getConnection(): Promise<string> {
         this.userRepository.save()
         this.mailService.send()
+        this.emailService.send()
         return this.connection.getName();
     }
     @Get('/hello-service')

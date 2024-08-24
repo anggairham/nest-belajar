@@ -17,6 +17,10 @@ import { createUserRepository, UserRepository } from './user-repository/user-rep
       useValue:mailService
     },
     {
+      provide:'EmailService',
+      useExisting:MailService
+    },
+    {
       provide:UserRepository,
       useFactory:createUserRepository,
       inject:[Connection],
