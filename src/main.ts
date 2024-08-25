@@ -26,6 +26,9 @@ async function bootstrap() {
   // app.useGlobalInterceptors(...)
   // app.useGlobalGuards(...)
 
+  // untuk keperluan agar log Disonnect prisma muncul atau on destroy dipanggil ketika Ctrl + C
+  app.enableShutdownHooks();
+
   const configService = app.get(ConfigService);
   await app.listen(configService.get('PORT'));
   // await app.listen(3000);
