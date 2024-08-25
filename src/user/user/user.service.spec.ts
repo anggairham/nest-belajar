@@ -17,6 +17,6 @@ describe('UserService', () => {
   });
   it('should be able to say hello', () => {
     const response = service.sayHello('Angga');
-    expect(response).toBe('Hello Angga')
+    expect(response).toBe('Hello Angga');
   });
 });

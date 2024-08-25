@@ -48,3 +48,5 @@ nest generate service validation validation
 nest generate middleware log
 # validation filter
 nest generate filter validation
+# MEMBUAT PIPE MANUAL
+nest generate pipe validation
