@@ -54,5 +54,11 @@ nest generate pipe validation
 # interceptor
 nest generate interceptor time 
 
+# Custom decorator
 nest generate middleware auth 
 nest generate decorator auth 
+
+# Guard : Authorization
+npx prisma generate
+npx prisma migrate dev
+nest generate guard role
