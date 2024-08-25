@@ -53,3 +53,6 @@ nest generate pipe validation
 # nest menggunakan rxjs ketika membuat interceptor
 # interceptor
 nest generate interceptor time 
+
+nest generate middleware auth 
+nest generate decorator auth 
