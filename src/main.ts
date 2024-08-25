@@ -22,6 +22,8 @@ async function bootstrap() {
   app.engine('html', mustache());
   // global exception filter
   app.useGlobalFilters(new ValidationFilter());
+  // global interceptor
+  // app.useGlobalInterceptors()
 
   const configService = app.get(ConfigService);
   await app.listen(configService.get('PORT'));

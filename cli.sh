@@ -50,3 +50,6 @@ nest generate middleware log
 nest generate filter validation
 # MEMBUAT PIPE MANUAL
 nest generate pipe validation
+# nest menggunakan rxjs ketika membuat interceptor
+# interceptor
+nest generate interceptor time 
