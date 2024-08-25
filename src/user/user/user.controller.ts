@@ -3,6 +3,7 @@ import {
   Get,
   Header,
   HttpCode,
+  HttpException,
   HttpRedirectResponse,
   Inject,
   Optional,
@@ -12,6 +13,7 @@ import {
   Redirect,
   Req,
   Res,
+  UseFilters,
 } from '@nestjs/common';
 import { Request, Response } from 'express';
 import { UserService } from './user.service';
@@ -20,6 +22,7 @@ import { MailService } from '../mail/mail.service';
 import { UserRepository } from '../user-repository/user-repository';
 import { MemberService } from '../member/member.service';
 import { User } from '@prisma/client';
+import { ValidationFilter } from 'src/validation/validation.filter';
 
 @Controller('/api/users')
 export class UserController {
@@ -57,9 +60,22 @@ export class UserController {
     @Query('first_name') first_name: string,
     @Query('last_name') last_name: string,
   ): Promise<User> {
+    // HttpException
+    if (!first_name) {
+      throw new HttpException(
+        {
+          code: 400,
+          errors: 'first_name is requeired',
+        },
+        400,
+      );
+    }
     return this.userRepository.save(first_name, last_name);
   }
+
   @Get('/hello-service')
+  // @UseFilters(ValidationFilter) //diubah jadi global filter
+  // ExceptionFilter
   async sayHelloService(@Query('name') name: string): Promise<string> {
     return this.userService.sayHello(name);
   }

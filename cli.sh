@@ -46,3 +46,5 @@ nest generate module validation
 nest generate service validation validation
 # middleware
 nest generate middleware log
+# validation filter
+nest generate filter validation
